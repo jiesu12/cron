@@ -1,11 +1,11 @@
 FROM armhf/alpine:3.5
 
-RUN apk update \
-&& apk add bash
+RUN apk --no-cache add busybox-suid
 
-VOLUME /scripts
+RUN addgroup -g 1000 jie && adduser -D -G jie -u 1000 jie
 
-COPY start.sh /
-RUN chmod +x /start.sh
-ENTRYPOINT ["/start.sh"]
+COPY cron.sh /
+RUN chmod +x /cron.sh
+
+ENTRYPOINT ["/cron.sh"]
 

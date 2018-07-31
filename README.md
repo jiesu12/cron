@@ -1,4 +1,7 @@
 ## Usage
-```
-docker run -d -v /path/to/scripts:/scripts -e CRON_JOB='* * * * * /scripts/hello_world.sh' --name cron_hello_world jiesu/cron
-```
+This is used as a base image for cron job container.
+
+The child image must provide:
+* A script called `job.sh`, and copy it to root directory.
+* Environment variable `SCHEDULE`, in crontab format.
+
