@@ -7,3 +7,5 @@ The child image must provide:
 
 Optional variable:
 * FRESH_ENV - if 'true' then cron job will be called using `su - jie` so the the job.sh will have fresh environment, otherwise will be called using `su jie`.
+
+It uses flock to prevent job overlapping. If a job runs for too long, it won't start again at the next scheduled time.
