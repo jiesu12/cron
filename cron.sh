@@ -1,5 +1,12 @@
 #!/bin/sh
 
+set -e
+
+if [ -f /init.sh ]
+then
+  /init.sh
+fi
+
 crontab -r
 
 if [ "$FRESH_ENV" = 'true' ]
