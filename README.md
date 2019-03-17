@@ -1,3 +1,8 @@
+## Build
+```
+docker build -t jiesu/cron:$(dpkg --print-architecture) .
+```
+
 ## Usage
 This is used as a base image for cron job container.
 
